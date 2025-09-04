@@ -1,0 +1,24 @@
+{
+  "manifest_version": 1,
+  "generated_at": "2025-09-04T08:05:54Z",
+  "packages": [
+    {
+      "id": "export-to-png",
+      "name": "Export to PNG",
+      "version": "1.0.0",
+      "description": "Пакетный экспорт артбордов в PNG.",
+      "dest_subdir": "Export",
+      "files": [],
+      "min_ai": "25.0",
+      "icon": "https://raw.githubusercontent.com/<mardymon>/Geek_scripts/main/scripts/export-to-png/icon.png"
+    },
+    {
+      "id": "rename-artboards",
+      "name": "Rename Artboards",
+      "version": "1.0.0",
+      "description": "Переименование артбордов по шаблону.",
+      "dest_subdir": "",
+      "files": []
+    }
+  ]
+}
