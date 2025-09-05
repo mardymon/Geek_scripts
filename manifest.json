@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-09-05T12:35:57Z",
+  "generated_at": "2025-09-05T13:17:17Z",
   "packages": [
     {
       "id": "export-to-png",
@@ -12,16 +12,16 @@
         {
           "path": "scripts/export-to-png/ExportToPNG.jsx",
           "sha256": "26ec9e05eca3422fcd37ebfa105115f60eb26864dda21b33abc65d659fe64ead",
-          "url": "https://raw.githubusercontent.com/mardymon/Geek_scripts/main/scripts/export-to-png/ExportToPNG.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@main/scripts/export-to-png/ExportToPNG.jsx"
         },
         {
           "path": "scripts/export-to-png/icon.png",
           "sha256": "b40c7d54b0ee8d54c84ee170ca5b8753bf6249dba44c611cf34eac2f3b287d7c",
-          "url": "https://raw.githubusercontent.com/mardymon/Geek_scripts/main/scripts/export-to-png/icon.png"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@main/scripts/export-to-png/icon.png"
         }
       ],
       "min_ai": "25.0",
-      "icon": "https://raw.githubusercontent.com/mardymon/Geek_scripts/main/scripts/export-to-png/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@main/scripts/export-to-png/icon.png"
     },
     {
       "id": "rename-artboards",
@@ -33,7 +33,7 @@
         {
           "path": "scripts/rename-artboards/RenameArtboards.jsx",
           "sha256": "dca7d5d11528d16bd0e0bad828bc000d4ff0a7dda4662d2ea1d3314acc860116",
-          "url": "https://raw.githubusercontent.com/mardymon/Geek_scripts/main/scripts/rename-artboards/RenameArtboards.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@main/scripts/rename-artboards/RenameArtboards.jsx"
         }
       ]
     }
