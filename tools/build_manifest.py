@@ -1,6 +1,6 @@
 import hashlib, json, os, sys, time
 
-OWNER = "<mardymon>"
+OWNER = "mardymon"
 REPO  = "Geek_scripts"
 BRANCH = "main"
 RAW = f"https://raw.githubusercontent.com/{OWNER}/{REPO}/{BRANCH}"
