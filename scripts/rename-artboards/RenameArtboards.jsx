@@ -1,2 +1,2 @@
-#target illustrator
-alert("Rename Artboards – демо скрипт.");
+﻿#target illustrator
+alert("Rename Artboards – демо скрипт РАБОТАЕТ.");
