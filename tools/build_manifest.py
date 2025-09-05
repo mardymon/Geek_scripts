@@ -1,16 +1,50 @@
-import hashlib, json, os, sys, time
+from pathlib import Path, PurePosixPath
+import subprocess, os, json, hashlib, time, sys
 
-OWNER = "mardymon"
-REPO  = "Geek_scripts"
+OWNER  = "mardymon"
+REPO   = "Geek_scripts"
 BRANCH = "main"
-# Получаем текущий хеш HEAD (если git недоступен — падаем обратно на ветку)
-try:
-    REV = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
-except Exception:
-    REV = BRANCH
 
-# Хостинг файлов: jsDelivr с фиксацией на конкретный коммит
+# Корень репозитория = папка уровнем выше tools/
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+def get_rev():
+    """
+    Возвращает SHA текущего коммита:
+    1) пробуем через git -C <repo> rev-parse HEAD
+    2) если git недоступен — читаем .git/HEAD и файл ссылки
+    3) в худшем случае — возвращаем имя ветки (main)
+    """
+    # 1) git CLI
+    try:
+        return subprocess.check_output(
+            ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"],
+            text=True
+        ).strip()
+    except Exception:
+        pass
+
+    # 2) .git/HEAD
+    head_path = REPO_ROOT / ".git" / "HEAD"
+    if head_path.exists():
+        head = head_path.read_text(encoding="utf-8").strip()
+        if head.startswith("ref:"):
+            ref = head.split(" ", 1)[1].strip()
+            ref_path = REPO_ROOT / ".git" / ref
+            if ref_path.exists():
+                return ref_path.read_text(encoding="utf-8").strip()
+        else:
+            # В HEAD уже напрямую SHA
+            return head
+
+    # 3) fallback
+    return BRANCH
+
+REV = get_rev()
+
+# Все файлы/иконки будут указывать на jsDelivr c фиксированным коммитом:
 RAW = f"https://cdn.jsdelivr.net/gh/{OWNER}/{REPO}@{REV}"
+
 
 # ОПИШИТЕ ПАКЕТЫ ЗДЕСЬ (добавляйте по мере надобности)
 PACKAGES = [
