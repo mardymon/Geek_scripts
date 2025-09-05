@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-09-05T13:17:17Z",
+  "generated_at": "2025-09-05T16:19:16Z",
   "packages": [
     {
       "id": "export-to-png",
@@ -26,7 +26,7 @@
     {
       "id": "rename-artboards",
       "name": "Rename Artboards",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Переименование артбордов по шаблону.",
       "dest_subdir": "",
       "files": [
