@@ -3,7 +3,7 @@ import hashlib, json, os, sys, time
 OWNER = "mardymon"
 REPO  = "Geek_scripts"
 BRANCH = "main"
-RAW = f"https://raw.githubusercontent.com/{OWNER}/{REPO}/{BRANCH}"
+RAW = f"https://cdn.jsdelivr.net/gh/{OWNER}/{REPO}@{BRANCH}"
 
 # ОПИШИТЕ ПАКЕТЫ ЗДЕСЬ (добавляйте по мере надобности)
 PACKAGES = [
