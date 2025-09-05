@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-09-05T20:02:15Z",
+  "generated_at": "2025-09-05T20:08:56Z",
   "packages": [
     {
       "id": "export-to-png",
@@ -12,11 +12,11 @@
         {
           "path": "scripts/export-to-png/ExportToPNG.jsx",
           "sha256": "3468964bc4eaa91a70cad70bdb08733bccaeb3bbbae13d22a9f610183dcdc75f",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@c5f618b36088f3f00913f63dbc5299d54fd15baf/scripts/export-to-png/ExportToPNG.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@24d56010119ab28aa3d4b10c8be75b0ccdeeeecc/scripts/export-to-png/ExportToPNG.jsx"
         }
       ],
       "min_ai": "25.0",
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@c5f618b36088f3f00913f63dbc5299d54fd15baf/scripts/export-to-png/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@24d56010119ab28aa3d4b10c8be75b0ccdeeeecc/scripts/export-to-png/icon.png"
     },
     {
       "id": "rename-artboards",
@@ -28,7 +28,7 @@
         {
           "path": "scripts/rename-artboards/RenameArtboards.jsx",
           "sha256": "e144d24cc86fb6375eba966f00664b14bff6fd4a5cafc54eab4b4bb1775ec701",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@c5f618b36088f3f00913f63dbc5299d54fd15baf/scripts/rename-artboards/RenameArtboards.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@24d56010119ab28aa3d4b10c8be75b0ccdeeeecc/scripts/rename-artboards/RenameArtboards.jsx"
         }
       ]
     }
