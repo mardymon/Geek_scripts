@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-09-05T21:17:48Z",
+  "generated_at": "2025-09-05T21:22:16Z",
   "packages": [
     {
       "id": "export-to-png",
@@ -12,23 +12,23 @@
         {
           "path": "scripts/export-to-png/ExportToPNG.jsx",
           "sha256": "3468964bc4eaa91a70cad70bdb08733bccaeb3bbbae13d22a9f610183dcdc75f",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@acecfd1677bdc5aa6b7f22e428fcf679fca50ebf/scripts/export-to-png/ExportToPNG.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@917824377ab76336ab37b3e9a02990d5fafda67f/scripts/export-to-png/ExportToPNG.jsx"
         }
       ],
       "min_ai": "25.0",
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@acecfd1677bdc5aa6b7f22e428fcf679fca50ebf/scripts/export-to-png/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@917824377ab76336ab37b3e9a02990d5fafda67f/scripts/export-to-png/icon.png"
     },
     {
       "id": "rename-artboards",
       "name": "Rename Artboards",
-      "version": "1.0.3",
+      "version": "1.0.5",
       "description": "Переименование артбордов по шаблону.",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/rename-artboards/RenameArtboards.jsx",
-          "sha256": "e1980986d53d893ee5be72ed0489b74629939335a0c1188bd5a9d356691b938a",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@acecfd1677bdc5aa6b7f22e428fcf679fca50ebf/scripts/rename-artboards/RenameArtboards.jsx"
+          "sha256": "22a4a7bcef4fc2dd751d0ae452609c42707ebaa268e12fd3faf4dddf0ec143a8",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@917824377ab76336ab37b3e9a02990d5fafda67f/scripts/rename-artboards/RenameArtboards.jsx"
         }
       ]
     }
