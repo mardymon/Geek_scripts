@@ -3,7 +3,14 @@ import hashlib, json, os, sys, time
 OWNER = "mardymon"
 REPO  = "Geek_scripts"
 BRANCH = "main"
-RAW = f"https://cdn.jsdelivr.net/gh/{OWNER}/{REPO}@{BRANCH}"
+# Получаем текущий хеш HEAD (если git недоступен — падаем обратно на ветку)
+try:
+    REV = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+except Exception:
+    REV = BRANCH
+
+# Хостинг файлов: jsDelivr с фиксацией на конкретный коммит
+RAW = f"https://cdn.jsdelivr.net/gh/{OWNER}/{REPO}@{REV}"
 
 # ОПИШИТЕ ПАКЕТЫ ЗДЕСЬ (добавляйте по мере надобности)
 PACKAGES = [
