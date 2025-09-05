@@ -20,7 +20,7 @@ PACKAGES = [
     {
         "id": "rename-artboards",
         "name": "Rename Artboards",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Переименование артбордов по шаблону.",
         "src_dir": "scripts/rename-artboards",
         "dest_subdir": ""
