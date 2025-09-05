@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-09-04T08:05:54Z",
+  "generated_at": "2025-09-05T12:29:24Z",
   "packages": [
     {
       "id": "export-to-png",
@@ -10,7 +10,7 @@
       "dest_subdir": "Export",
       "files": [],
       "min_ai": "25.0",
-      "icon": "https://raw.githubusercontent.com/<mardymon>/Geek_scripts/main/scripts/export-to-png/icon.png"
+      "icon": "https://raw.githubusercontent.com/mardymon/Geek_scripts/main/scripts/export-to-png/icon.png"
     },
     {
       "id": "rename-artboards",
