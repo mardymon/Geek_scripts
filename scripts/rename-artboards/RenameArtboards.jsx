@@ -1,2 +1,2 @@
-﻿#target illustrator
-alert("Rename Artboards – не демо теперь точно.");
+#target illustrator
+alert("version: 1.0.6.");
