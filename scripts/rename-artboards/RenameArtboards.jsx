@@ -1,2 +1,2 @@
 #target illustrator
-alert("version: 1.0.6.");
+alert("version: 1.0.7.");
