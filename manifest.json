@@ -1,36 +1,201 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-10-28T07:49:32Z",
+  "generated_at": "2025-10-28T09:03:55Z",
   "packages": [
     {
-      "id": "export-to-png",
-      "name": "Export to PNG",
+      "id": "1 Кол-во",
+      "name": "1 Кол-во",
       "version": "1.0.0",
-      "description": "Пакетный экспорт артбордов в PNG.",
-      "dest_subdir": "Export",
-      "files": [
-        {
-          "path": "scripts/export-to-png/ExportToPNG.jsx",
-          "sha256": "26ec9e05eca3422fcd37ebfa105115f60eb26864dda21b33abc65d659fe64ead",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@0d9135804e0734f0a6b36c0f4badfa63495bc59e/scripts/export-to-png/ExportToPNG.jsx"
-        }
-      ],
-      "min_ai": "25.0",
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@0d9135804e0734f0a6b36c0f4badfa63495bc59e/scripts/export-to-png/icon.png"
-    },
-    {
-      "id": "rename-artboards",
-      "name": "Rename Artboards",
-      "version": "1.0.11",
-      "description": "Переименование артбордов по шаблону.",
+      "description": "Создание копий макетов",
       "dest_subdir": "",
       "files": [
         {
-          "path": "scripts/rename-artboards/RenameArtboards.jsx",
-          "sha256": "8a10c998d12823e1dcdd9e89b0c12eb335c6ddadf9a1c1902e448df399806693",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@0d9135804e0734f0a6b36c0f4badfa63495bc59e/scripts/rename-artboards/RenameArtboards.jsx"
+          "path": "scripts/1 Кол-во/1 Кол-во.jsx",
+          "sha256": "fdaa9422c52927380832508641f4b5dc6ae1182df3c9956c460237203639784f",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/1 Кол-во/1 Кол-во.jsx"
         }
-      ]
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/1 Кол-во/icon.png"
+    },
+    {
+      "id": "2 Разделить",
+      "name": "2 Разделить",
+      "version": "1.0.0",
+      "description": "Отделить картинку от контура",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/2 Разделить/2 Разделить.jsx",
+          "sha256": "c1141051014fe6846df78eebfa0af3af27de7f0d38fb393bf7d9da395dac6e68",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/2 Разделить/2 Разделить.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/2 Разделить/icon.png"
+    },
+    {
+      "id": "3 Name лист",
+      "name": "3 Name лист",
+      "version": "1.0.0",
+      "description": "Подписать лист печати",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/3 Name лист/3 Name лист.jsx",
+          "sha256": "05296c5d77274dcc828088aaeeb3a222eb11a3100f16b50268ddd9d16dd58e04",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/3 Name лист/3 Name лист.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/3 Name лист/icon.png"
+    },
+    {
+      "id": "4 Артикул под меткой",
+      "name": "4 Артикул под меткой",
+      "version": "1.0.0",
+      "description": "Подписать артикул под меткой печати",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/4 Артикул под меткой/4 Артикул под меткой.jsx",
+          "sha256": "d00eaecc402f33672eadce3f270f18d304d0019f347d5dde69567904b6665980",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/4 Артикул под меткой/4 Артикул под меткой.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/4 Артикул под меткой/icon.png"
+    },
+    {
+      "id": "5 Артикул слева",
+      "name": "5 Артикул слева",
+      "version": "1.0.0",
+      "description": "Подписать артикул для листа печати",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/5 Артикул слева/5 Артикул слева.jsx",
+          "sha256": "61c3d52011758615b9c825e0da1dc107783ac80cad3c81f7ab7b81e11d501118",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/5 Артикул слева/5 Артикул слева.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/5 Артикул слева/icon.png"
+    },
+    {
+      "id": "6 Размер макетов",
+      "name": "6 Размер макетов",
+      "version": "1.0.0",
+      "description": "Подписать размеры у макетов",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/6 Размер макетов/6 Размер макетов.jsx",
+          "sha256": "3c6770a4a9fd3f68c44159127e3beb2b67fbcd7cbb80a9049eb2fedcbb5bcfe1",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/6 Размер макетов/6 Размер макетов.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/6 Размер макетов/icon.png"
+    },
+    {
+      "id": "7 Трассировка",
+      "name": "7 Трассировка",
+      "version": "1.0.0",
+      "description": "Трассировать изображение для обработки",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/7 Трассировка/7 Трассировка.jsx",
+          "sha256": "6e658c4920c58946e24be5518a53a618566e845dba5207d5faacd2527bc92ea2",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/7 Трассировка/7 Трассировка.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/7 Трассировка/icon.png"
+    },
+    {
+      "id": "8 Удалить белый",
+      "name": "8 Удалить белый",
+      "version": "1.0.0",
+      "description": "Удалить белый фон",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/8 Удалить белый/8 Удалить белый.jsx",
+          "sha256": "42c217c2f9a8b08101bd6f7bcde62eab2c04a36692472f68157188c4ab4ff24f",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/8 Удалить белый/8 Удалить белый.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/8 Удалить белый/icon.png"
+    },
+    {
+      "id": "9 Контур",
+      "name": "9 Контур",
+      "version": "1.0.0",
+      "description": "Создать контур макета",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/9 Контур/9 Контур.jsx",
+          "sha256": "353b7803f5729488f5211c76fb57dd8b7725939d44c9a9105106d3986eb30017",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/9 Контур/9 Контур.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/9 Контур/icon.png"
+    },
+    {
+      "id": "91 Перенос на новый слой",
+      "name": "91 Перенос на новый слой",
+      "version": "1.0.0",
+      "description": "Перенести объект на новый слой",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/91 Перенос на новый слой/91 Перенос на новый слой.jsx",
+          "sha256": "e1224859ee2e8a2407f887fecb820a6d71b4e5a4726c8521b3c3e15b3776e6d2",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/91 Перенос на новый слой/91 Перенос на новый слой.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/91 Перенос на новый слой/icon.png"
+    },
+    {
+      "id": "92 Изображение",
+      "name": "92 Изображение",
+      "version": "1.0.0",
+      "description": "Подогнать размер у группы изображений",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/92 Изображение/92 Изображение.jsx",
+          "sha256": "9e6ae33ed82a0292bac93ff6e88abc0b7ebea773299e58f319fb432728907cb5",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/92 Изображение/92 Изображение.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/92 Изображение/icon.png"
+    },
+    {
+      "id": "93 Артикул под макетом",
+      "name": "93 Артикул под макетом",
+      "version": "1.0.0",
+      "description": "Подписать артикул у макета",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/93 Артикул под макетом/93 Артикул под макетом.jsx",
+          "sha256": "1844f666555a5215f9ccbe01ec8b28708c409794755dead903d8cc2da70d5cd6",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/93 Артикул под макетом/93 Артикул под макетом.jsx"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/93 Артикул под макетом/icon.png"
+    },
+    {
+      "id": "symbols_oos",
+      "name": "symbols_oos",
+      "version": "1.0.0",
+      "description": "Список отсутствующих акрилов",
+      "dest_subdir": "",
+      "files": [
+        {
+          "path": "scripts/symbols_oos/symbols_oos.txt",
+          "sha256": "4229b02b5ef5f9f260a7cb3ed3a7ff56de339964ebe6cec12becd62893eed910",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/symbols_oos/symbols_oos.txt"
+        }
+      ],
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6614354e3178bac4d1221efc67667c6c6ca08257/scripts/symbols_oos/icon.png"
     }
   ]
 }
