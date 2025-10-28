@@ -1,2 +1,2 @@
-#target illustrator
-alert("хули палишь.");
+﻿#target illustrator
+alert("хули палишь, работает ???.");
