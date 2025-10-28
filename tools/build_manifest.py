@@ -13,22 +13,121 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 # === ОПИСАНИЕ ПАКЕТОВ (редактируй версии/описания тут) ===
 PACKAGES = [
     {
-        "id": "export-to-png",
-        "name": "Export to PNG",
+        "id": "1 Кол-во",
+        "name": "1 Кол-во",
         "version": "1.0.0",
-        "description": "Пакетный экспорт артбордов в PNG.",
-        "src_dir": "scripts/export-to-png",
-        "dest_subdir": "Export",
-        "min_ai": "25.0",
+        "description": "Создание копий макетов",
+        "src_dir": "scripts/1 Кол-во",
+        "dest_subdir": "",
         "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     },
     {
-        "id": "rename-artboards",
-        "name": "Rename Artboards",
-        "version": "1.0.11",  # ← ставь здесь актуальную версию пакета
-        "description": "Переименование артбордов по шаблону.",
-        "src_dir": "scripts/rename-artboards",
-        "dest_subdir": ""
+        "id": "2 Разделить",
+        "name": "2 Разделить",
+        "version": "1.0.0",
+        "description": "Отделить картинку от контура",
+        "src_dir": "scripts/2 Разделить",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "3 Name лист",
+        "name": "3 Name лист",
+        "version": "1.0.0",
+        "description": "Подписать лист печати",
+        "src_dir": "scripts/3 Name лист",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "4 Артикул под меткой",
+        "name": "4 Артикул под меткой",
+        "version": "1.0.0",
+        "description": "Подписать артикул под меткой печати",
+        "src_dir": "scripts/4 Артикул под меткой",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "5 Артикул слева",
+        "name": "5 Артикул слева",
+        "version": "1.0.0",
+        "description": "Подписать артикул для листа печати",
+        "src_dir": "scripts/5 Артикул слева",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "6 Размер макетов",
+        "name": "6 Размер макетов",
+        "version": "1.0.0",
+        "description": "Подписать размеры у макетов",
+        "src_dir": "scripts/6 Размер макетов",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "7 Трассировка",
+        "name": "7 Трассировка",
+        "version": "1.0.0",
+        "description": "Трассировать изображение для обработки",
+        "src_dir": "scripts/7 Трассировка",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "8 Удалить белый",
+        "name": "8 Удалить белый",
+        "version": "1.0.0",
+        "description": "Удалить белый фон",
+        "src_dir": "scripts/8 Удалить белый",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "9 Контур",
+        "name": "9 Контур",
+        "version": "1.0.0",
+        "description": "Создать контур макета",
+        "src_dir": "scripts/9 Контур",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "91 Перенос на новый слой",
+        "name": "91 Перенос на новый слой",
+        "version": "1.0.0",
+        "description": "Перенести объект на новый слой",
+        "src_dir": "scripts/91 Перенос на новый слой",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "92 Изображение",
+        "name": "92 Изображение",
+        "version": "1.0.0",
+        "description": "Подогнать размер у группы изображений",
+        "src_dir": "scripts/92 Изображение",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "93 Артикул под макетом",
+        "name": "93 Артикул под макетом",
+        "version": "1.0.0",
+        "description": "Подписать артикул у макета",
+        "src_dir": "scripts/93 Артикул под макетом",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "symbols_oos",
+        "name": "symbols_oos",
+        "version": "1.0.0",
+        "description": "Список отсутствующих акрилов",
+        "src_dir": "scripts/symbols_oos",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     }
 ]
 
