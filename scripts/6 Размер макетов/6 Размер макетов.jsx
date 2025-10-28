@@ -8,7 +8,7 @@
   if (!doc.selection || doc.selection.length === 0) { alert("Нужно выделить объекты."); return; }
 
   // ===== Настройки =====
-  var OFFSET_PT = 10;      // отступ вниз, pt
+  var OFFSET_PT = 30;      // отступ вниз, pt
   var FONT_SIZE = 12;      // размер шрифта
   var MM_PER_PT = 25.4 / 72;
 
