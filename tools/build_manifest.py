@@ -60,7 +60,7 @@ PACKAGES = [
     {
         "id": "6 Размер макетов",
         "name": "6 Размер макетов",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Подписать размеры у макетов",
         "src_dir": "scripts/6 Размер макетов",
         "dest_subdir": "",
