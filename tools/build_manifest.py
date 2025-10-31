@@ -15,7 +15,7 @@ PACKAGES = [
     {
         "id": "1 Кол-во",
         "name": "1 Кол-во",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Создание копий макетов",
         "src_dir": "scripts/1 Кол-во",
         "dest_subdir": "",
@@ -60,7 +60,7 @@ PACKAGES = [
     {
         "id": "6 Размер макетов",
         "name": "6 Размер макетов",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "Подписать размеры у макетов",
         "src_dir": "scripts/6 Размер макетов",
         "dest_subdir": "",
@@ -121,11 +121,11 @@ PACKAGES = [
         "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     },
     {
-        "id": "symbols_oos",
-        "name": "symbols_oos",
+        "id": "94 Распределение",
+        "name": "94 Распределение",
         "version": "1.0.0",
-        "description": "Список отсутствующих акрилов",
-        "src_dir": "scripts/symbols_oos",
+        "description": "Разложить картинки",
+        "src_dir": "scripts/94 Распределение",
         "dest_subdir": "",
         "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     }
