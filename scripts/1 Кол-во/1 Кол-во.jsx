@@ -104,7 +104,7 @@
         // processMaskForCopy(newCopy);
     }
 
-    alert('Готово! Всего объектов теперь: ' + (copiesCount + 1));
+    //alert('Готово! Всего объектов теперь: ' + (copiesCount + 1));
 
     // ========= Заглушка под будущую обработку маски =========
     function processMaskForCopy(copy) { /* no-op */ }
