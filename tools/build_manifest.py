@@ -15,7 +15,7 @@ PACKAGES = [
     {
         "id": "1 Кол-во",
         "name": "1 Кол-во",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "Создание копий макетов",
         "src_dir": "scripts/1 Кол-во",
         "dest_subdir": "",
@@ -33,7 +33,7 @@ PACKAGES = [
     {
         "id": "3 Name лист",
         "name": "3 Name лист",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Подписать лист печати",
         "src_dir": "scripts/3 Name лист",
         "dest_subdir": "",
