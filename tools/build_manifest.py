@@ -128,6 +128,15 @@ PACKAGES = [
         "src_dir": "scripts/94 Распределение",
         "dest_subdir": "",
         "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "95 Разложить лист",
+        "name": "95 Разложить лист",
+        "version": "1.0.0",
+        "description": "Разложить лист по слоям",
+        "src_dir": "scripts/95 Разложить лист",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     }
 ]
 
