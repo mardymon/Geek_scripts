@@ -129,7 +129,7 @@ function main() {
             // ignore errors
         }
 
-        alert("Имя группы установлено:\n" + groupName);
+        //alert("Имя группы установлено:\n" + groupName);
         win.close();
     };
 
