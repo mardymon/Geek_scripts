@@ -69,7 +69,7 @@ PACKAGES = [
     {
         "id": "7 Трассировка",
         "name": "7 Трассировка",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Трассировать изображение для обработки",
         "src_dir": "scripts/7 Трассировка",
         "dest_subdir": "",
@@ -135,6 +135,15 @@ PACKAGES = [
         "version": "1.0.0",
         "description": "Разложить лист по слоям",
         "src_dir": "scripts/95 Разложить лист",
+        "dest_subdir": "",
+        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
+    },
+    {
+        "id": "96 Штрих-код контура",
+        "name": "96 Штрих-код контура",
+        "version": "1.0.0",
+        "description": "Выгрузить и создать штрих-код контура",
+        "src_dir": "scripts/96 Штрих-код контура",
         "dest_subdir": "",
         "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     }
