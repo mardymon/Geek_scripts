@@ -1,65 +1,109 @@
-﻿﻿// ImageTracing_WithDuplicates.jsx
-// Adobe Illustrator script: копирует выбранные растровые или размещённые объекты, 
-// а затем трассирует созданные дубликаты с выбранным пресетом.
+﻿﻿// 7 Трассировка.jsx
+// Копирует выбранные растровые/размещённые объекты (по выбору)
+// и трассирует их дубликаты / оригиналы пресетом "Силуэты"
 
 #target illustrator
+
+// Название пресета трассировки (должен существовать в Иллюстраторе)
+var PRESET_NAME = "Силуэты";
 
 if (app.documents.length === 0) {
     alert("Нет открытого документа. Пожалуйста, откройте документ и выберите растровые или размещённые объекты.");
 } else {
     var doc = app.activeDocument;
+
+    // Проверим, что нужный пресет есть в списке
     var presets = app.tracingPresetsList;
-    if (presets.length === 0) {
-        alert("Пресеты трассировки не найдены.");
+    var hasPreset = false;
+    for (var i = 0; i < presets.length; i++) {
+        if (presets[i] === PRESET_NAME) {
+            hasPreset = true;
+            break;
+        }
+    }
+    if (!hasPreset) {
+        alert('Пресет трассировки "' + PRESET_NAME + '" не найден.\n' +
+              'Проверьте, что он есть в меню трассировки.');
     } else {
-        // Окно выбора пресета
-        var dlg = new Window("dialog", "Image Trace");
-        dlg.orientation = "column";
-        dlg.alignChildren = ["fill", "top"];
-        dlg.add("statictext", undefined, "Выберите пресет трассировки:");
-        var list = dlg.add("dropdownlist", undefined, presets);
-        list.selection = 0;
-        var btnGroup = dlg.add("group");
-        btnGroup.alignment = "right";
-        btnGroup.add("button", undefined, "OK",   {name: "ok"});
-        btnGroup.add("button", undefined, "Cancel",{name: "cancel"});
-        
-        if (dlg.show() == 1) {
-            var presetName = presets[list.selection.index];
-            var sel = doc.selection;
-            if (sel.length === 0) {
-                alert("Нет выбранных объектов.");
-            } else {
-                // 1) Создаём копии всех выбранных объектов
-                var itemsToTrace = [];
-                for (var i = 0; i < sel.length; i++) {
-                    var item = sel[i];
-                    // дублируем объект в том же слое
+        var sel = doc.selection;
+        if (!sel || sel.length === 0) {
+            alert("Нет выбранных объектов.");
+        } else {
+
+            // --- ОКНО ВЫБОРА РЕЖИМА: С КОПИЕЙ / БЕЗ КОПИИ ---
+
+            var dlg = new Window("dialog", "Режим трассировки");
+            dlg.orientation = "column";
+            dlg.alignChildren = ["fill", "top"];
+
+            dlg.add("statictext", undefined, "Выберите режим работы:");
+
+            var grp = dlg.add("group");
+            grp.orientation = "row";
+            grp.alignChildren = ["fill", "center"];
+
+            var mode = null; // "copy" или "nocopy"
+
+            var btnCopy   = grp.add("button", undefined, "С копией");
+            var btnNoCopy = grp.add("button", undefined, "Без копии");
+
+            var btnCancel = dlg.add("button", undefined, "Отмена", {name: "cancel"});
+
+            btnCopy.onClick = function () {
+                mode = "copy";
+                dlg.close(1);
+            };
+            btnNoCopy.onClick = function () {
+                mode = "nocopy";
+                dlg.close(1);
+            };
+            btnCancel.onClick = function () {
+                mode = null;
+                dlg.close(0);
+            };
+
+            var dlgResult = dlg.show();
+            if (dlgResult != 1 || mode === null) {
+                // Пользователь отменил — выходим
+                exit();
+            }
+
+            // --- СФОРМИРОВАТЬ СПИСОК ОБЪЕКТОВ ДЛЯ ТРАССИРОВКИ ---
+
+            var itemsToTrace = [];
+
+            if (mode === "copy") {
+                // Создаём копии всех выбранных объектов
+                for (var s = 0; s < sel.length; s++) {
+                    var item = sel[s];
                     var dup = item.duplicate();
                     itemsToTrace.push(dup);
                 }
-                // 2) Сбрасываем выбор и выбираем только дубликаты
-                doc.selection = itemsToTrace;
-                
-                // 3) Выполняем трассировку по дубликатам
-                for (var i = 0; i < itemsToTrace.length; i++) {
-                    var item = itemsToTrace[i];
-                    if (item.typename === "RasterItem" || item.typename === "PlacedItem") {
-                        var traceObj = item.trace();
-                        traceObj.tracing.tracingOptions.loadFromPreset(presetName);
-                        traceObj.tracing.tracingOptions.fills = true;
-                        traceObj.tracing.tracingOptions.strokes = false;
-                        app.redraw();
-                        // развернуть результат трассировки
-                        // вариант 1:
-                        traceObj.tracing.expandTracing();
-                        // вариант 2 (если нужно через меню):
-                        // app.executeMenuCommand("expandTracing");
-                    }
+            } else {
+                // Без копий — работаем по исходным объектам
+                for (var s2 = 0; s2 < sel.length; s2++) {
+                    itemsToTrace.push(sel[s2]);
                 }
-                
-                alert("Трассировка завершена по дубликатам.\nИспользован пресет: " + presetName);
             }
+
+            // Выбираем только те объекты, по которым будет трассировка
+            doc.selection = itemsToTrace;
+
+            // --- ТРАССИРОВКА ---
+
+            for (var j = 0; j < itemsToTrace.length; j++) {
+                var tItem = itemsToTrace[j];
+                if (tItem.typename === "RasterItem" || tItem.typename === "PlacedItem") {
+                    var traceObj = tItem.trace();
+                    traceObj.tracing.tracingOptions.loadFromPreset(PRESET_NAME);
+                    traceObj.tracing.tracingOptions.fills = true;
+                    traceObj.tracing.tracingOptions.strokes = false;
+                    app.redraw();
+                    traceObj.tracing.expandTracing();
+                }
+            }
+
+            // Сообщение о завершении специально НЕ показываем
         }
     }
 }
