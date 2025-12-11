@@ -132,7 +132,7 @@ PACKAGES = [
     {
         "id": "95 Разложить лист",
         "name": "95 Разложить лист",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Разложить лист по слоям",
         "src_dir": "scripts/95 Разложить лист",
         "dest_subdir": "",
