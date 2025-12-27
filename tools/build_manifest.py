@@ -69,18 +69,9 @@ PACKAGES = [
     {
         "id": "7 Трассировка",
         "name": "7 Трассировка",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "description": "Трассировать изображение для обработки",
         "src_dir": "scripts/7 Трассировка",
-        "dest_subdir": "",
-        "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
-    },
-    {
-        "id": "8 Удалить белый",
-        "name": "8 Удалить белый",
-        "version": "1.0.0",
-        "description": "Удалить белый фон",
-        "src_dir": "scripts/8 Удалить белый",
         "dest_subdir": "",
         "icon_rel": "icon.png",  # файл иконки внутри src_dir (опционально)
     },
