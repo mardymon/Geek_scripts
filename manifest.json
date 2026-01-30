@@ -1,21 +1,21 @@
 {
   "manifest_version": 1,
-  "generated_at": "2025-12-27T11:42:46Z",
+  "generated_at": "2026-01-30T10:58:22Z",
   "packages": [
     {
       "id": "1 Кол-во",
       "name": "1 Кол-во",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "description": "Создание копий макетов",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/1 Кол-во/1 Кол-во.jsx",
-          "sha256": "858608421dc6d6b0567b824ede57570839617a71989d11829fa237d6e0fad5ca",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/1 Кол-во/1 Кол-во.jsx"
+          "sha256": "c9f0d7afcb807ba985d225901afbaa2045152cb154c1aa152a4ca3658f72f9f4",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/1 Кол-во/1 Кол-во.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/1 Кол-во/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/1 Кол-во/icon.png"
     },
     {
       "id": "2 Разделить",
@@ -27,55 +27,55 @@
         {
           "path": "scripts/2 Разделить/2 Разделить.jsx",
           "sha256": "c1141051014fe6846df78eebfa0af3af27de7f0d38fb393bf7d9da395dac6e68",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/2 Разделить/2 Разделить.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/2 Разделить/2 Разделить.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/2 Разделить/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/2 Разделить/icon.png"
     },
     {
       "id": "3 Name лист",
       "name": "3 Name лист",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Подписать лист печати",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/3 Name лист/3 Name лист.jsx",
-          "sha256": "ca2f2584966e3c899de8632d0fd7b806ba0e8ad06f332f89c78516cf85ffd2bb",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/3 Name лист/3 Name лист.jsx"
+          "sha256": "e3806372e0b5ea7b0a5372c58996c56f00a64280377855afb953e2485a1d00db",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/3 Name лист/3 Name лист.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/3 Name лист/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/3 Name лист/icon.png"
     },
     {
       "id": "4 Артикул под меткой",
       "name": "4 Артикул под меткой",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Подписать артикул под меткой печати",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/4 Артикул под меткой/4 Артикул под меткой.jsx",
-          "sha256": "d00eaecc402f33672eadce3f270f18d304d0019f347d5dde69567904b6665980",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/4 Артикул под меткой/4 Артикул под меткой.jsx"
+          "sha256": "777d33a459f3bf3c8b59f4de469f400ffd3bd6111ebf1a8a2346f736904d7571",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/4 Артикул под меткой/4 Артикул под меткой.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/4 Артикул под меткой/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/4 Артикул под меткой/icon.png"
     },
     {
       "id": "5 Артикул слева",
       "name": "5 Артикул слева",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Подписать артикул для листа печати",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/5 Артикул слева/5 Артикул слева.jsx",
-          "sha256": "61c3d52011758615b9c825e0da1dc107783ac80cad3c81f7ab7b81e11d501118",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/5 Артикул слева/5 Артикул слева.jsx"
+          "sha256": "5339979d1e665cb8993e8a97aab3dc847b7ad5b8abcde80ffe99fb8b1d7af8a3",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/5 Артикул слева/5 Артикул слева.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/5 Артикул слева/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/5 Артикул слева/icon.png"
     },
     {
       "id": "6 Размер макетов",
@@ -87,10 +87,10 @@
         {
           "path": "scripts/6 Размер макетов/6 Размер макетов.jsx",
           "sha256": "313dac67422193d544ec193f334e8e641b3e0e0f4df4a66c9bee14484bf778c5",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/6 Размер макетов/6 Размер макетов.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/6 Размер макетов/6 Размер макетов.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/6 Размер макетов/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/6 Размер макетов/icon.png"
     },
     {
       "id": "7 Трассировка",
@@ -102,10 +102,10 @@
         {
           "path": "scripts/7 Трассировка/7 Трассировка.jsx",
           "sha256": "ecb052ff42d10f15b26139c6925b417a43f81fda4915ea270896707e3fe92325",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/7 Трассировка/7 Трассировка.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/7 Трассировка/7 Трассировка.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/7 Трассировка/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/7 Трассировка/icon.png"
     },
     {
       "id": "9 Контур",
@@ -117,10 +117,10 @@
         {
           "path": "scripts/9 Контур/9 Контур.jsx",
           "sha256": "353b7803f5729488f5211c76fb57dd8b7725939d44c9a9105106d3986eb30017",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/9 Контур/9 Контур.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/9 Контур/9 Контур.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/9 Контур/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/9 Контур/icon.png"
     },
     {
       "id": "91 Перенос на новый слой",
@@ -132,10 +132,10 @@
         {
           "path": "scripts/91 Перенос на новый слой/91 Перенос на новый слой.jsx",
           "sha256": "e1224859ee2e8a2407f887fecb820a6d71b4e5a4726c8521b3c3e15b3776e6d2",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/91 Перенос на новый слой/91 Перенос на новый слой.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/91 Перенос на новый слой/91 Перенос на новый слой.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/91 Перенос на новый слой/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/91 Перенос на новый слой/icon.png"
     },
     {
       "id": "92 Изображение",
@@ -147,25 +147,25 @@
         {
           "path": "scripts/92 Изображение/92 Изображение.jsx",
           "sha256": "9e6ae33ed82a0292bac93ff6e88abc0b7ebea773299e58f319fb432728907cb5",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/92 Изображение/92 Изображение.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/92 Изображение/92 Изображение.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/92 Изображение/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/92 Изображение/icon.png"
     },
     {
       "id": "93 Артикул под макетом",
       "name": "93 Артикул под макетом",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Подписать артикул у макета",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/93 Артикул под макетом/93 Артикул под макетом.jsx",
-          "sha256": "1844f666555a5215f9ccbe01ec8b28708c409794755dead903d8cc2da70d5cd6",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/93 Артикул под макетом/93 Артикул под макетом.jsx"
+          "sha256": "5ad14a5643ad75322fd269ce6d3c168d66777250b066abcddd48581de2768196",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/93 Артикул под макетом/93 Артикул под макетом.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/93 Артикул под макетом/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/93 Артикул под макетом/icon.png"
     },
     {
       "id": "94 Распределение",
@@ -177,10 +177,10 @@
         {
           "path": "scripts/94 Распределение/94 Распределение.jsx",
           "sha256": "b54e03109c6e7e656b639f8471e9c3a370e4e513089e2eb78eda61bf9e99151b",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/94 Распределение/94 Распределение.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/94 Распределение/94 Распределение.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/94 Распределение/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/94 Распределение/icon.png"
     },
     {
       "id": "95 Разложить лист",
@@ -192,25 +192,25 @@
         {
           "path": "scripts/95 Разложить лист/95 Разложить лист.jsx",
           "sha256": "150fb9ff9e8fc40c468e22a7db823537c31991268a869ec372ec3b3ddbab1dd8",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/95 Разложить лист/95 Разложить лист.jsx"
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/95 Разложить лист/95 Разложить лист.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/95 Разложить лист/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/95 Разложить лист/icon.png"
     },
     {
       "id": "96 Штрих-код контура",
       "name": "96 Штрих-код контура",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Выгрузить и создать штрих-код контура",
       "dest_subdir": "",
       "files": [
         {
           "path": "scripts/96 Штрих-код контура/96 Штрих-код контура.jsx",
-          "sha256": "efd134707983a1fff87dd46a92e36bf4cb338c40deb16f37ceac52c017013b90",
-          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/96 Штрих-код контура/96 Штрих-код контура.jsx"
+          "sha256": "c636de13acc040b7e6f02d235b59d4859d1c65773564de51dd48ac1a05e4cdae",
+          "url": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/96 Штрих-код контура/96 Штрих-код контура.jsx"
         }
       ],
-      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@6d2d701bd9ae59aa730d496202b9fb50efa47666/scripts/96 Штрих-код контура/icon.png"
+      "icon": "https://cdn.jsdelivr.net/gh/mardymon/Geek_scripts@8bda758d4e4930349c5da59369a5483bcbab5516/scripts/96 Штрих-код контура/icon.png"
     }
   ]
 }
