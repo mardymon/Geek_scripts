@@ -11,12 +11,15 @@
   // === НАСТРОЙКИ ШТРИХ-КОДА ===
   // Более типичные настройки под сканер:
   var MODULE_MIN_MM   = 0.30; // 1 модуль ≈ 0.3 мм (узкая полоса)
-  var BAR_HEIGHT_MM   = 15;   // высота штрихов
+  var BAR_HEIGHT_MM   = 10;   // высота штрихов
   var QUIET_MM        = 3.00; // тихие зоны по 3 мм с каждой стороны
   var BAR_OVERSCAN_MM = 0.00; // без утолщения баров, чтобы не "забивать" зазоры
   var ID_DIGITS       = 10;   // чётное число цифр
   var MAP_CSV_NAME    = "_barcode_map.csv";
-  var GAP_MM_LEFT     = 3.00; // зазор слева от выделенного
+  var GAP_MM_LEFT     = 3.00; // (устар.) было: зазор слева от выделенного
+  var OFFSET_MM_RIGHT = 29.10; // отступ ВПРАВО от правого края выделения
+  var COPY_STEP_MM    = 300.00; // шаг между штрих-кодами по X
+  var EXTRA_COPIES    = 4; // сколько ДОПОЛНИТЕЛЬНЫХ копий создать (итого будет 5)
 
   // === ПРОВЕРЯЕМ ВЫДЕЛЕНИЕ ===
   if (!doc.selection || doc.selection.length === 0) {
@@ -78,19 +81,27 @@
     x += w;
   }
 
-  // === ПОЗИЦИОНИРОВАНИЕ: слева от выделенного, по центру по высоте ===
+  // === ПОЗИЦИОНИРОВАНИЕ: справа от выделенного по верхнему краю + 4 копии (итого 5) ===
   app.redraw();
-  var gapPt = GAP_MM_LEFT * mm;
+  var gapPt = GAP_MM_LEFT * mm; // legacy
+  var offsetPt = OFFSET_MM_RIGHT * mm;
+  var stepPt   = COPY_STEP_MM * mm;
   var placed = false;
 
   var b = getSelectionBounds(doc.selection); // [L,T,R,B]
   if (b) {
-    var selLeft = b[0], selTop = b[1], selBottom = b[3];
-    var selH = Math.abs(selTop - selBottom);
-    var codeW = grp.width, codeH = grp.height;
-    var newLeft = selLeft - gapPt - codeW;
-    var newTop  = selTop - ((selH - codeH) / 2);
+    var selRight = b[2], selTop = b[1];
+    var codeW = grp.width;
+    var newLeft = selRight + offsetPt;
+    var newTop  = selTop - 2; // выравниваем по верхнему краю выделения
     grp.position = [newLeft, newTop];
+
+    // === ЕЩЁ 4 КОПИИ НА ТОМ ЖЕ УРОВНЕ, ШАГ 267 мм ===
+    for (var i = 1; i <= EXTRA_COPIES; i++) {
+      var dup = grp.duplicate();
+      dup.position = [newLeft + (i * stepPt), newTop];
+    }
+
     placed = true;
   }
 
@@ -98,13 +109,20 @@
     var ab = doc.artboards[doc.artboards.getActiveArtboardIndex()];
     var r = ab.artboardRect, pad = 3 * mm;
     grp.position = [r[2] - pad - grp.width, r[1] - pad];
+    // если нет выделения — тоже делаем 4 копии справа
+    var baseLeft = grp.position[0];
+    var baseTop  = grp.position[1];
+    for (var j = 1; j <= EXTRA_COPIES; j++) {
+      var dup2 = grp.duplicate();
+      dup2.position = [baseLeft + (j * stepPt), baseTop];
+    }
   }
 
-  alert(
-    "DXF сохранён (ТОЛЬКО выделенное).\n" +
-    "ID: " + numericId + "\n" +
-    "Ширина кода ≈ " + totalWmm.toFixed(1) + " мм; quiet по " + QUIET_MM + " мм."
-  );
+  //alert(
+    //"DXF сохранён (ТОЛЬКО выделенное).\n" +
+    //"ID: " + numericId + "\n" +
+    //"Ширина кода ≈ " + totalWmm.toFixed(1) + " мм; quiet по " + QUIET_MM + " мм."
+  
 
   // ===== ВСПОМОГАТЕЛЬНЫЕ =====
   function pickDXFFile() {
