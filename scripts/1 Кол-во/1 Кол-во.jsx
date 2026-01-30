@@ -34,6 +34,28 @@
         var okBtn = btns.add('button', undefined, 'OK', {name:'ok'});
         var cancelBtn = btns.add('button', undefined, 'Отмена', {name:'cancel'});
 
+        // Явно задаём элементы по умолчанию.
+        // Это помогает «съедать» Enter/Esc внутри диалога, чтобы после закрытия
+        // Enter не проваливался в Illustrator и не запускал стандартные команды.
+        win.defaultElement = okBtn;
+        win.cancelElement = cancelBtn;
+
+        // Перехват Enter/Esc на уровне окна (и поля ввода) и отмена дальнейшей обработки.
+        function handleKeys(k) {
+            if (!k) return;
+            if (k.keyName === 'Enter') {
+                // НЕ закрываем окно напрямую по Enter — запускаем валидацию через OK.
+                okBtn.notify('onClick');
+                k.cancel = true;
+            } else if (k.keyName === 'Escape') {
+                win.close(0);
+                k.cancel = true;
+            }
+        }
+
+        try { win.addEventListener('keydown', handleKeys); } catch (e) {}
+        try { edt.addEventListener('keydown', handleKeys); } catch (e) {}
+
         // Валидация при OK
         okBtn.onClick = function () {
             var v = (edt.text || '').replace(/^\s+|\s+$/g, '');
@@ -41,6 +63,8 @@
                 alert('Введите корректное целое число (> 0).');
                 return;
             }
+            // Перед закрытием слегка гасим окно, чтобы Enter не «проскочил» в Illustrator.
+            try { win.enabled = false; } catch (e) {}
             win.close(1); // OK
         };
 
