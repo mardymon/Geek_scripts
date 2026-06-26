@@ -16,7 +16,7 @@
   var ID_DIGITS       = 10;
   var MAP_CSV_NAME    = "_barcode_map.csv";
   var GAP_MM_LEFT     = 3.00; // legacy
-  var OFFSET_MM_RIGHT = 29.10;
+  var OFFSET_MM_RIGHT = 46 ;
   var COPY_STEP_MM    = 300.00;
 
   // === ПРОВЕРКА ВЫДЕЛЕНИЯ ===
@@ -27,7 +27,7 @@
 
   // === КУДА СОХРАНИТЬ DXF ===
   var dxfFile = pickDXFFile();
-  if (!dxfFile) { alert("Сохранение отменено."); return; }
+  if (!dxfFile) { return; }
 
   // === ЭКСПОРТ DXF (ТОЛЬКО ВЫДЕЛЕННОЕ) ===
   exportSelectedToDXF(doc, dxfFile);
