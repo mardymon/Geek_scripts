@@ -55,28 +55,36 @@
 
   function mmIntFromPt(pt) { return Math.round(pt * MM_PER_PT); }
 
-  function placeSizeLabel(item) {
-    var gb = item.geometricBounds; // [L, T, R, B]
-    var left = gb[0], top = gb[1], right = gb[2], bottom = gb[3];
-    var wPt = right - left;
-    var hPt = top - bottom;
+function placeSizeLabel(item) {
+    // Используем visibleBounds, так как оно точнее отражает видимый объект
+    // Если объект пустой или имеет нулевые границы, try-catch это обработает
+    try {
+        var gb = item.visibleBounds; // [L, T, R, B]
+        var left = gb[0], top = gb[1], right = gb[2], bottom = gb[3];
+        
+        // Защита: если границы нулевые, выходим, чтобы не рисовать в углу
+        if (left == 0 && top == 0 && right == 0 && bottom == 0) return;
 
-    var wMM = mmIntFromPt(wPt);
-    var hMM = mmIntFromPt(hPt);
+        var wPt = right - left;
+        var hPt = top - bottom;
 
-    var textStr = wMM + " × " + hMM + " мм";
+        // Расчет позиции (центр по ширине, низ по высоте)
+        var centerX = left + (wPt / 2);
+        var labelY = bottom - 10; // Отступ вниз на 10pt (настройте под себя)
 
-    var cx = (left + right) / 2;
-    var y = bottom - OFFSET_PT;
+        // Создание текста
+        var labelText = mmIntFromPt(wPt) + " × " + mmIntFromPt(hPt) + " мм";
+        var textItem = app.activeDocument.activeLayer.textFrames.add();
+        textItem.contents = labelText;
+        textItem.textRange.size = FONT_SIZE;
+        
+        // Центрирование текста
+        textItem.left = centerX - (textItem.width / 2);
+        textItem.top = labelY;
 
-    var tf = item.layer.textFrames.add();
-    tf.contents = textStr;
-    tf.kind = TextType.POINTTEXT;
-    tf.textRange.characterAttributes.size = FONT_SIZE;
-    tf.position = [cx, y];
-
-    var tgb = tf.geometricBounds;
-    var tw = tgb[2] - tgb[0];
-    tf.position = [cx - tw / 2, y];
-  }
+    } catch (e) {
+        // Если что-то пошло не так, просто игнорируем этот объект
+        return;
+    }
+}
 })();
