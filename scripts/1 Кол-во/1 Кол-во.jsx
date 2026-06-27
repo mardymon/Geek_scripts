@@ -36,6 +36,7 @@
     grpMain.add('statictext', undefined, 'кол-во:');
     var edtMain = grpMain.add('edittext', undefined, '10');
     edtMain.characters = 8;
+    edtMain.active = true; // Устанавливаем фокус на поле ввода
 
     var grpExtra = win.add('group');
     grpExtra.orientation = 'row';
