@@ -1,9 +1,10 @@
 ﻿// 1 Кол-во.jsx — Исправленная версия (Итоговое количество = Main + Extra)
 (function () {
+
     // ========= Настройки =========
     var SPACING_X = 10;
     var SPACING_Y = 10;
-    var COLS      = 5;
+    var COLS = 5;
 
     // ========= Файл настроек =========
     var scriptFolder = Folder($.fileName).parent;
@@ -36,7 +37,7 @@
     grpMain.add('statictext', undefined, 'кол-во:');
     var edtMain = grpMain.add('edittext', undefined, '10');
     edtMain.characters = 8;
-    edtMain.active = true; // Устанавливаем фокус на поле ввода
+    edtMain.active = true;
 
     var grpExtra = win.add('group');
     grpExtra.orientation = 'row';
@@ -46,41 +47,88 @@
 
     var btns = win.add('group');
     btns.alignment = 'right';
+
     var okBtn = btns.add('button', undefined, 'OK', {name:'ok'});
     var cancelBtn = btns.add('button', undefined, 'Отмена', {name:'cancel'});
 
+    // ===========================
+    // Обработка Enter / Esc
+    // ===========================
+
+    win.defaultElement = okBtn;
+    win.cancelElement = cancelBtn;
+
+    okBtn.onClick = function () {
+        try {
+            win.enabled = false;
+        } catch (e) {}
+
+        win.close(1);
+    };
+
+    cancelBtn.onClick = function () {
+        win.close(0);
+    };
+
+    function handleKeys(k) {
+
+        if (!k) return;
+
+        if (k.keyName === "Enter") {
+            okBtn.notify("onClick");
+            k.cancel = true;
+        }
+        else if (k.keyName === "Escape") {
+            cancelBtn.notify("onClick");
+            k.cancel = true;
+        }
+    }
+
+    try { win.addEventListener("keydown", handleKeys); } catch(e) {}
+    try { edtMain.addEventListener("keydown", handleKeys); } catch(e) {}
+    try { edtExtra.addEventListener("keydown", handleKeys); } catch(e) {}
+
+    // ===========================
+
     if (win.show() !== 1) return;
 
-    var mainCount = parseInt(edtMain.text) || 0;
-    var extraCount = parseInt(edtExtra.text) || 0;
+    var mainCount = parseInt(edtMain.text, 10) || 0;
+    var extraCount = parseInt(edtExtra.text, 10) || 0;
+
     saveExtraCopies(extraCount);
 
     // ========= Логика =========
     if (app.documents.length === 0) return;
+
     var doc = app.activeDocument;
+
     if (!doc.selection || doc.selection.length === 0) return;
 
     var selectedObject = doc.selection[0];
-    
+
     // Итоговое количество объектов (включая оригинал)
     var totalTarget = mainCount + extraCount;
-    // Количество копий, которые нужно создать = Итого - 1 (оригинал)
+
+    // Количество копий, которые нужно создать = Итого - 1
     var copiesToMake = totalTarget - 1;
 
     var objWidth  = selectedObject.width;
     var objHeight = selectedObject.height;
+
     var origLeft = selectedObject.position[0];
     var origTop  = selectedObject.position[1];
 
     // Цикл создания копий
     for (var i = 1; i <= copiesToMake; i++) {
-        var col  = i % COLS;
-        var row  = Math.floor(i / COLS);
-        
+
+        var col = i % COLS;
+        var row = Math.floor(i / COLS);
+
         var newX = origLeft + col * (objWidth + SPACING_X);
-        var newY = origTop  + row * (objHeight + SPACING_Y);
+        var newY = origTop + row * (objHeight + SPACING_Y);
 
         var newCopy = selectedObject.duplicate();
         newCopy.position = [newX, newY];
     }
+
 })();
