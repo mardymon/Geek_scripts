@@ -8,7 +8,7 @@
   if (!doc.selection || doc.selection.length === 0) { alert("Нужно выделить объекты."); return; }
 
   // ===== Настройки =====
-  var OFFSET_PT = 30;      // отступ вниз, pt
+  var OFFSET_PT = 30;      // Теперь это значение будет учитываться
   var FONT_SIZE = 12;      // размер шрифта
   var MM_PER_PT = 25.4 / 72;
 
@@ -49,42 +49,37 @@
 
   function isEligiblePath(p) {
     if (p.clipping || p.guides || p.locked || p.hidden) return false;
-    if (p.filled) return false; // только без заливки
+    if (p.filled) return false; 
     return true;
   }
 
   function mmIntFromPt(pt) { return Math.round(pt * MM_PER_PT); }
 
-function placeSizeLabel(item) {
-    // Используем visibleBounds, так как оно точнее отражает видимый объект
-    // Если объект пустой или имеет нулевые границы, try-catch это обработает
+  function placeSizeLabel(item) {
     try {
-        var gb = item.visibleBounds; // [L, T, R, B]
+        var gb = item.visibleBounds; 
         var left = gb[0], top = gb[1], right = gb[2], bottom = gb[3];
         
-        // Защита: если границы нулевые, выходим, чтобы не рисовать в углу
         if (left == 0 && top == 0 && right == 0 && bottom == 0) return;
 
         var wPt = right - left;
         var hPt = top - bottom;
 
-        // Расчет позиции (центр по ширине, низ по высоте)
         var centerX = left + (wPt / 2);
-        var labelY = bottom - 10; // Отступ вниз на 10pt (настройте под себя)
+        
+        // --- ИСПРАВЛЕНО ЗДЕСЬ ---
+        var labelY = bottom - OFFSET_PT; 
 
-        // Создание текста
         var labelText = mmIntFromPt(wPt) + " × " + mmIntFromPt(hPt) + " мм";
         var textItem = app.activeDocument.activeLayer.textFrames.add();
         textItem.contents = labelText;
         textItem.textRange.size = FONT_SIZE;
         
-        // Центрирование текста
         textItem.left = centerX - (textItem.width / 2);
         textItem.top = labelY;
 
     } catch (e) {
-        // Если что-то пошло не так, просто игнорируем этот объект
         return;
     }
-}
+  }
 })();
