@@ -24,7 +24,7 @@ PACKAGES = [
     {
         "id": "2 Разделить",
         "name": "2 Разделить",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "Отделить картинку от контура",
         "src_dir": "scripts/2 Разделить",
         "dest_subdir": "",
@@ -33,7 +33,7 @@ PACKAGES = [
     {
         "id": "3 Name лист",
         "name": "3 Name лист",
-        "version": "1.0.5",
+        "version": "1.0.6",
         "description": "Подписать лист печати",
         "src_dir": "scripts/3 Name лист",
         "dest_subdir": "",
@@ -42,7 +42,7 @@ PACKAGES = [
     {
         "id": "4 Артикул под меткой",
         "name": "4 Артикул под меткой",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "description": "Подписать артикул под меткой печати",
         "src_dir": "scripts/4 Артикул под меткой",
         "dest_subdir": "",
@@ -51,7 +51,7 @@ PACKAGES = [
     {
         "id": "5 Артикул слева",
         "name": "5 Артикул слева",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "description": "Подписать артикул для листа печати",
         "src_dir": "scripts/5 Артикул слева",
         "dest_subdir": "",
@@ -105,7 +105,7 @@ PACKAGES = [
     {
         "id": "93 Артикул под макетом",
         "name": "93 Артикул под макетом",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "description": "Подписать артикул у макета",
         "src_dir": "scripts/93 Артикул под макетом",
         "dest_subdir": "",
