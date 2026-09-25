@@ -18,6 +18,10 @@ if (doc.selection.length === 0) {
         if (selectedItem.typename === "RasterItem") {
             rasterObjects.push(selectedItem);
         }
+        // Если объект является текстовым фреймом, добавляем его в массив
+        else if (selectedItem.typename === "TextFrame") {
+            rasterObjects.push(selectedItem);
+        }
         // Если объект является группой, проверяем её содержимое
         else if (selectedItem.typename === "GroupItem") {
             if (containsRaster(selectedItem)) {
@@ -30,16 +34,16 @@ if (doc.selection.length === 0) {
     if (rasterObjects.length > 0) {
         doc.selection = rasterObjects;
     } else {
-        alert("Нет подходящих растровых объектов или групп с растровыми объектами.");
+        alert("Нет подходящих растровых объектов, текста или групп с ними.");
     }
 }
 
-// Функция для проверки, содержит ли группа хотя бы один растровый объект
+// Функция для проверки, содержит ли группа хотя бы один растровый объект или текстовый фрейм
 function containsRaster(group) {
     for (var j = 0; j < group.pageItems.length; j++) {
         var item = group.pageItems[j];
-        if (item.typename === "RasterItem") {
-            return true; // Группа содержит растровый объект
+        if (item.typename === "RasterItem" || item.typename === "TextFrame") {
+            return true; // Группа содержит растровый объект или текст
         } else if (item.typename === "GroupItem") {
             // Если внутри группы есть другая группа, проверяем её рекурсивно
             if (containsRaster(item)) {
@@ -47,5 +51,5 @@ function containsRaster(group) {
             }
         }
     }
-    return false; // Группа не содержит растровых объектов
+    return false; // Группа не содержит растровых объектов или текста
 }
