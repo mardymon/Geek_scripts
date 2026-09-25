@@ -4,11 +4,24 @@ function main() {
     // File to store last entered group name
     var settingsFile = new File(Folder.myDocuments + "/aiGroupRename_LastName.txt");
     var lastName = "";
+    var lastSide = 0; // 0 = с одной стороны, 1 = с двух сторон
+
     if (settingsFile.exists) {
         try {
             settingsFile.open("r");
-            lastName = settingsFile.read();
+            var line1 = settingsFile.readln();
+            var line2 = "";
+            if (!settingsFile.eof) {
+                line2 = settingsFile.readln();
+            }
             settingsFile.close();
+
+            lastName = line1;
+            if (line2 === "1") {
+                lastSide = 1;
+            } else {
+                lastSide = 0;
+            }
         } catch (e) {
             // ignore errors
         }
@@ -47,6 +60,11 @@ function main() {
         "000M", "CFS-1", "CFS-2", "CFS-3", "CFS-4", "CFS-5", "CFS-6",
         "TC-1", "TC-2", "TC-3", "TC-4", "TC-5", "TC-6", "TC-7", "TC-8", "TC-9",
         "IM-01", "IM-02", "IM-03", "IM-04", "IM-05", "IM-06", 
+        "LGG-1", "LGG-2", "LGG-5",
+        "WHS-1", "WHS-2", "WHS-3", "WHS-5",
+        "FST-2",
+        "RO-11", "RO-12",
+        "GSJ-26",
         "Черный", "Белый", "Зеленый", "Синий", "Желтый", "Красный",
         "MK-04", "MK-03", "MK-05", "502M", "801A",  "1528M", "1529M", "2378M", "416M", "444M",
         "16", "35", "109", "134", "157", "2677", "3674", "5140", "5149", "5215", "5251", "6202",  "7202", "8352", "8635", "45201",
@@ -65,7 +83,11 @@ function main() {
         "SHP-2", "SHP-4", "SHP-5", "SHP-H2","SHP-H3",
         "SW-17", "SW-2", "SW-108",
         "SYM-1", "SYM-2", "SYM-4",
-        "RO-1",  "RO-2", "RO-3", "RO-4", "RO-5","RO-7", "RO-9"
+        "RO-1",  "RO-2", "RO-3", "RO-4", "RO-5","RO-7", "RO-9", "RO-10",
+        "MPL-1", "MPL-2", "MPL-3", "MPL-4", "MPL-5",
+        "WHS-4",
+        "ODE-4", "ODE-10", "ODE-11", "ODE-12",
+        "GSJ-2", "GSJ-4", "GSJ-7", "GSJ-13", "GSJ-14", "GSJ-23"
     ];
 
     // Build UI
@@ -89,8 +111,15 @@ function main() {
     suggestionList.preferredSize = [100, 200];
 
     win.add("statictext", undefined, "Печать:");
-    var sideDropdown = win.add("dropdownlist", undefined, ["с одной стороны", "с двух сторон"]);
-    sideDropdown.selection = 0;
+    var sideGroup = win.add("group");
+    sideGroup.orientation = "row";
+    var sideOne = sideGroup.add("radiobutton", undefined, "с одной стороны");
+    var sideTwo = sideGroup.add("radiobutton", undefined, "с двух сторон");
+    if (lastSide === 1) {
+        sideTwo.value = true;
+    } else {
+        sideOne.value = true;
+    }
 
     win.add("panel");
 
@@ -127,17 +156,21 @@ function main() {
 
     okBtn.onClick = function () {
         if (nameInput.text === "") { alert("Введите название!"); return; }
+        var sideText = sideTwo.value ? "с двух сторон" : "с одной стороны";
+        var sideIndex = sideTwo.value ? 1 : 0;
+
         var parts = [nameInput.text];
         if (commentInput.text !== "") parts.push(commentInput.text);
         parts.push(acrylicInput.text);
-        parts.push(sideDropdown.selection.text);
+        parts.push(sideText);
         var groupName = parts.join(" ").replace(/[\/\\:*?"<>|]/g, "_");
 
         sel[0].name = groupName;
-        // Save last entered name
+        // Save last entered name and selected side
         try {
             settingsFile.open("w");
-            settingsFile.write(nameInput.text);
+            settingsFile.writeln(nameInput.text);
+            settingsFile.writeln(String(sideIndex));
             settingsFile.close();
         } catch (e) {
             // ignore errors
