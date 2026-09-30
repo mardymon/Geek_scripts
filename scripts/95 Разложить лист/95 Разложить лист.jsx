@@ -1,4 +1,4 @@
-﻿   #target illustrator
+﻿    #target illustrator
 
 (function () {
     var SCRIPT_NAME = "95 Разложить лист";
@@ -62,42 +62,19 @@
             return false;
         }
 
-        // РЕКУРСИВНЫЙ поиск контура маски внутри обтравочной группы
-        function findClipPathRecursive(obj) {
-            if (!obj) return null;
-
-            try {
-                // у некоторых объектов есть свойство clipping
-                if (obj.clipping) {
-                    return obj;
-                }
-            } catch (e) {}
-
-            var i, children;
-
-            if (obj.typename === "GroupItem" || obj.typename === "Layer") {
-                children = obj.pageItems;
-                for (i = 0; i < children.length; i++) {
-                    var res = findClipPathRecursive(children[i]);
-                    if (res) return res;
-                }
-            } else if (obj.typename === "CompoundPathItem") {
-                children = obj.pathItems;
-                for (i = 0; i < children.length; i++) {
-                    var res2 = findClipPathRecursive(children[i]);
-                    if (res2) return res2;
-                }
-            }
-
-            return null;
-        }
-
-        // получаем контур маски внутри обтравочной группы
+        // Только собственная маска группы. Вложенные маски относятся к рисунку
+        // и могут иметь другие центры; составную маску берём целиком.
         function getClipPath(item) {
-            if (!item) return null;
-
-            if (item.typename === "GroupItem" && item.clipped) {
-                return findClipPathRecursive(item);
+            if (!item || item.typename !== "GroupItem" || !item.clipped) return null;
+            for (var i = 0; i < item.pageItems.length; i++) {
+                var child = item.pageItems[i];
+                if (child.parent !== item) continue;
+                if (child.typename === "PathItem" && child.clipping) return child;
+                if (child.typename === "CompoundPathItem") {
+                    for (var p = 0; p < child.pathItems.length; p++) {
+                        if (child.pathItems[p].clipping) return child;
+                    }
+                }
             }
             return null;
         }
@@ -132,10 +109,10 @@
             return rx + "_" + ry;
         }
 
-        // Границы контура маски. Нужны для объединения масок разного размера
-        // одного макета: их центры могут отличаться, но области перекрываются.
+        // Границы контура маски: размер может отличаться, центр должен совпадать.
         function getMaskBounds(item) {
-            var target = getClipPath(item) || item;
+            var target = getClipPath(item);
+            if (!target) return null;
             try {
                 return target.geometricBounds;
             } catch (e) {
@@ -167,7 +144,7 @@
             var bcx = (b[0] + b[2]) / 2;
             var bcy = (b[1] + b[3]) / 2;
 
-            var CENTER_TOLERANCE = 30  * MM; // допуск между центрами слоёв одного макета
+            var CENTER_TOLERANCE = 0.1 * MM; // только погрешность центрирования, 0,1 мм
 
             return Math.abs(acx - bcx) <= CENTER_TOLERANCE &&
                    Math.abs(acy - bcy) <= CENTER_TOLERANCE;
@@ -201,8 +178,7 @@
 
         // -------- ГРУППИРУЕМ СЛОИ ПО ПОЗИЦИЯМ --------
 
-        // Не используем только точный центр: у масок одного макета
-        // размеры могут отличаться. Объединяем перекрывающиеся области.
+        // Объединяем по центру маски независимо от размера и пересечения областей.
         var stacks = [];
 
         for (var j = 0; j < layerItems.length; j++) {
@@ -210,26 +186,16 @@
             if (!item) continue;
 
             var itemBounds = getMaskBounds(item);
+            if (!itemBounds) {
+                alert("Не удалось определить собственный контур маски одного из слоёв. Раскладка отменена, исходные объекты сохранены.");
+                return;
+            }
             var placed = false;
 
             for (var st = 0; st < stacks.length; st++) {
-                var stackBoundsList = stacks[st].boundsList;
-                var overlaps = false;
-
-                // Сравниваем с каждой исходной маской стопки,
-                // чтобы соседние макеты не объединялись цепочкой.
-                for (var sb = 0; sb < stackBoundsList.length; sb++) {
-                    if (boundsBelongToSameLayout(itemBounds, stackBoundsList[sb])) {
-                        overlaps = true;
-                        break;
-                    }
-                }
-
-                if (overlaps) {
+                // Фиксированный центр первой маски исключает объединение цепочкой.
+                if (boundsBelongToSameLayout(itemBounds, stacks[st].referenceBounds)) {
                     stacks[st].items.push(item);
-                    if (itemBounds) {
-                        stacks[st].boundsList.push(itemBounds);
-                    }
                     placed = true;
                     break;
                 }
@@ -238,7 +204,7 @@
             if (!placed) {
                 stacks.push({
                     items: [item],
-                    boundsList: itemBounds ? [itemBounds] : []
+                    referenceBounds: itemBounds
                 });
             }
         }
@@ -290,12 +256,10 @@
                 var n = arr.length;
                 if (n === 0) continue;
 
-                // Если слоёв меньше, равномерно распределяем их по листам.
-                // Например, 2 слоя на 4 листа: [1, 1, 2, 2].
-                var sheetsPerLayer = Math.floor(maxDepth / n);
-                if (sheetsPerLayer < 1) sheetsPerLayer = 1;
-                var idx = n - 1 - Math.floor(layerIndex / sheetsPerLayer);
-                if (idx < 0) idx = 0;
+                // Пропорциональное распределение с сохранением порядка слоёв:
+                // 2 на 4: [1, 1, 2, 2]; 2 на 3: [1, 2, 2].
+                var layerNumber = Math.ceil((layerIndex + 1) * n / maxDepth) - 1;
+                var idx = n - 1 - layerNumber;
 
                 var src = arr[idx];
                 if (!src) continue;
