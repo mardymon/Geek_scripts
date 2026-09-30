@@ -1,4 +1,4 @@
-﻿#target illustrator
+﻿   #target illustrator
 
 (function () {
     var SCRIPT_NAME = "95 Разложить лист";
@@ -132,6 +132,47 @@
             return rx + "_" + ry;
         }
 
+        // Границы контура маски. Нужны для объединения масок разного размера
+        // одного макета: их центры могут отличаться, но области перекрываются.
+        function getMaskBounds(item) {
+            var target = getClipPath(item) || item;
+            try {
+                return target.geometricBounds;
+            } catch (e) {
+                try {
+                    return target.visibleBounds;
+                } catch (e2) {
+                    return null;
+                }
+            }
+        }
+
+        function boundsOverlap(a, b) {
+            if (!a || !b) return false;
+
+            var left = Math.max(a[0], b[0]);
+            var right = Math.min(a[2], b[2]);
+            var top = Math.min(a[1], b[1]);
+            var bottom = Math.max(a[3], b[3]);
+
+            return right > left && top > bottom;
+        }
+
+        // Для одного макета учитываем только центр маски, независимо от её размера.
+        function boundsBelongToSameLayout(a, b) {
+            if (!a || !b) return false;
+
+            var acx = (a[0] + a[2]) / 2;
+            var acy = (a[1] + a[3]) / 2;
+            var bcx = (b[0] + b[2]) / 2;
+            var bcy = (b[1] + b[3]) / 2;
+
+            var CENTER_TOLERANCE = 30  * MM; // допуск между центрами слоёв одного макета
+
+            return Math.abs(acx - bcx) <= CENTER_TOLERANCE &&
+                   Math.abs(acy - bcy) <= CENTER_TOLERANCE;
+        }
+
         // -------- РАЗДЕЛЯЕМ МЕТКИ И СЛОИ --------
 
         var marks = [];
@@ -160,28 +201,52 @@
 
         // -------- ГРУППИРУЕМ СЛОИ ПО ПОЗИЦИЯМ --------
 
-        var stacksMap = {};
+        // Не используем только точный центр: у масок одного макета
+        // размеры могут отличаться. Объединяем перекрывающиеся области.
+        var stacks = [];
 
         for (var j = 0; j < layerItems.length; j++) {
             var item = layerItems[j];
             if (!item) continue;
 
-            var key = getPositionKey(item);
-            if (!key) continue;
+            var itemBounds = getMaskBounds(item);
+            var placed = false;
 
-            if (!stacksMap[key]) {
-                stacksMap[key] = { items: [] };
+            for (var st = 0; st < stacks.length; st++) {
+                var stackBoundsList = stacks[st].boundsList;
+                var overlaps = false;
+
+                // Сравниваем с каждой исходной маской стопки,
+                // чтобы соседние макеты не объединялись цепочкой.
+                for (var sb = 0; sb < stackBoundsList.length; sb++) {
+                    if (boundsBelongToSameLayout(itemBounds, stackBoundsList[sb])) {
+                        overlaps = true;
+                        break;
+                    }
+                }
+
+                if (overlaps) {
+                    stacks[st].items.push(item);
+                    if (itemBounds) {
+                        stacks[st].boundsList.push(itemBounds);
+                    }
+                    placed = true;
+                    break;
+                }
             }
-            stacksMap[key].items.push(item);
+
+            if (!placed) {
+                stacks.push({
+                    items: [item],
+                    boundsList: itemBounds ? [itemBounds] : []
+                });
+            }
         }
 
-        var stacks = [];
         var maxDepth = 0;
 
-        for (var key in stacksMap) {
-            if (!stacksMap.hasOwnProperty(key)) continue;
-
-            var stack = stacksMap[key];
+        for (var si = 0; si < stacks.length; si++) {
+            var stack = stacks[si];
 
             // сортируем по zOrderPosition сверху вниз
             stack.items.sort(function (a, b) {
@@ -193,7 +258,6 @@
             });
 
             if (stack.items.length > maxDepth) maxDepth = stack.items.length;
-            stacks.push(stack);
         }
 
         if (stacks.length === 0 || maxDepth === 0) {
@@ -226,12 +290,12 @@
                 var n = arr.length;
                 if (n === 0) continue;
 
-                var idx;
-                if (layerIndex < n) {
-                    idx = n - 1 - layerIndex; // сверху вниз
-                } else {
-                    idx = 0; // нижний, если слоёв меньше
-                }
+                // Если слоёв меньше, равномерно распределяем их по листам.
+                // Например, 2 слоя на 4 листа: [1, 1, 2, 2].
+                var sheetsPerLayer = Math.floor(maxDepth / n);
+                if (sheetsPerLayer < 1) sheetsPerLayer = 1;
+                var idx = n - 1 - Math.floor(layerIndex / sheetsPerLayer);
+                if (idx < 0) idx = 0;
 
                 var src = arr[idx];
                 if (!src) continue;
