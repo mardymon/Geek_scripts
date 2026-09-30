@@ -24,7 +24,7 @@ if (doc.selection.length === 0) {
         }
         // Если объект является группой, проверяем её содержимое
         else if (selectedItem.typename === "GroupItem") {
-            if (containsRaster(selectedItem)) {
+            if (containsRaster(selectedItem) || containsClippingMaskVector(selectedItem)) {
                 rasterObjects.push(selectedItem);
             }
         }
@@ -36,6 +36,33 @@ if (doc.selection.length === 0) {
     } else {
         alert("Нет подходящих растровых объектов, текста или групп с ними.");
     }
+}
+
+// Проверяет, есть ли в группе обтравочная маска с векторными объектами внутри.
+// Сам контур маски не учитывается.
+function containsClippingMaskVector(group) {
+    if (group.clipped) {
+        for (var k = 0; k < group.pageItems.length; k++) {
+            var item = group.pageItems[k];
+            if (item.typename === "PathItem" && item.clipping === true) {
+                continue;
+            }
+            if (item.typename === "PathItem" ||
+                item.typename === "CompoundPathItem" ||
+                item.typename === "MeshItem" ||
+                item.typename === "PluginItem") {
+                return true;
+            }
+        }
+    }
+
+    for (var m = 0; m < group.pageItems.length; m++) {
+        if (group.pageItems[m].typename === "GroupItem" &&
+            containsClippingMaskVector(group.pageItems[m])) {
+            return true;
+        }
+    }
+    return false;
 }
 
 // Функция для проверки, содержит ли группа хотя бы один растровый объект или текстовый фрейм
