@@ -33,7 +33,7 @@ PACKAGES = [
     {
         "id": "3 Name лист",
         "name": "3 Name лист",
-        "version": "1.0.6",
+        "version": "1.0.7",
         "description": "Подписать лист печати",
         "src_dir": "scripts/3 Name лист",
         "dest_subdir": "",
