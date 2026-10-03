@@ -204,15 +204,21 @@ RAW = f"https://cdn.jsdelivr.net/gh/{OWNER}/{REPO}@{REV}"
 
 def git_bytes(rel_posix: str) -> bytes:
     """
-    Возвращает БАЙТЫ ФАЙЛА из git-объекта (как их отдаёт raw/jsDelivr).
-    Если git недоступен (редко), читаем файл с диска как запасной вариант.
+    Возвращает байты файла из Git-объекта текущего коммита.
+    Не подменяем их содержимым рабочей копии: на Windows окончания строк
+    могут отличаться от байтов, которые GitHub/CDN отдаёт по ссылке из манифеста.
     """
     try:
         return subprocess.check_output(
-            ["git", "-C", str(REPO_ROOT), "show", f"{REV}:{rel_posix}"]
+            ["git", "-C", str(REPO_ROOT), "show", f"{REV}:{rel_posix}"],
+            stderr=subprocess.PIPE
         )
-    except Exception:
-        return (REPO_ROOT / rel_posix).read_bytes()
+    except (subprocess.CalledProcessError, OSError) as exc:
+        detail = exc.stderr.decode("utf-8", errors="replace").strip() if isinstance(exc, subprocess.CalledProcessError) and exc.stderr else str(exc)
+        raise RuntimeError(
+            f"Не удалось получить {rel_posix} из Git-коммита {REV}. "
+            f"Манифест не создан, чтобы не записать неверный SHA-256. Причина: {detail}"
+        ) from exc
 
 def file_entry(rel_fs: Path) -> dict:
     """Собирает запись о файле для manifest.json (URL с @REV и корректный SHA)."""
