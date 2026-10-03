@@ -15,7 +15,7 @@ PACKAGES = [
     {
         "id": "1 Кол-во",
         "name": "1 Кол-во",
-        "version": "1.0.4",
+        "version": "1.0.5",
         "description": "Создание копий макетов",
         "src_dir": "scripts/1 Кол-во",
         "dest_subdir": "",
