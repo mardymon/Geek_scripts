@@ -165,7 +165,7 @@ var OOS_REPLACEMENT_TEXT = "Замените акрил";
         "WHS-4",
         "ODE-4", "ODE-10", "ODE-11", "ODE-12",
         "MTN-2",
-        "GSJ-2", "GSJ-4", "GSJ-7", "GSJ-13", "GSJ-14", "GSJ-23", "тест"
+        "GSJ-2", "GSJ-4", "GSJ-7", "GSJ-13", "GSJ-14", "GSJ-23", "тест2"
     ];
 
     var dlg = new Window("dialog", "Выберите артикул");
